@@ -1,11 +1,12 @@
 import asyncio
 import requests
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from transformers import pipeline
 
-BOT_TOKEN = "7994321891:AAFHQ-MY3G4TjA0AOAr_OdBGPDIPPs-QbOg"
-NEWS_API_KEY = "f897129240c247188bc8fe76766f2c0a"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
 # Initialize summarizer
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
